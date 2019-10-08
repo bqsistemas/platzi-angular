@@ -1,14 +1,19 @@
-<div>
-    <img [src]="product.image" alt="">
-</div>
-<div>
-    <ul>
-        <li>
-            Nombre: {{ product.title | uppercase }}
-        </li>
-        <li>
-            Nombre: {{ product.price | currency }}
-        </li>
-    </ul>
-    <p> {{ product.description }} </p>
+<div *ngIf="product">
+    <div>
+        <img [src]="product.image" alt="">
+    </div>
+    <div>
+        <ul>
+            <li>
+                Nombre: {{ product.title | uppercase }}
+            </li>
+            <li>
+                Precio: {{ product.price | currency }}
+            </li>
+        </ul>
+        <p> {{ product.description }} </p>
+    </div>
+    <button mat-raised-button color="primary" (click)="createProduct()">Crear</button>
+    <button mat-raised-button color="warn" (click)="updateProduct(product.id)">Actualizar</button>
+    <button mat-raised-button color="accent" (click)="deleteProduct(product.id)">Eliminar</button>
 </div>
